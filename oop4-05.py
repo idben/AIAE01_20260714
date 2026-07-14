@@ -1,5 +1,6 @@
 # 用撲克牌的例子做抽象化的練習
 import random
+import time
 
 # 替代型別
 # type Card = tuple[str, str]
@@ -42,9 +43,13 @@ deck01.shuffle_deck()
 # print(deck01.get_cards_num())
 # print(f"發第 {index} 張牌，花色是 {card01}，剩下 {deck01.get_cards_num()} 張牌")
 
-for _, index in enumerate(range(10), 1):
+for index, _ in enumerate(range(53), start=1):
     card01 = deck01.deal_card()
-    print(f"發第 {index} 張牌，花色是 {card01}，剩下 {deck01.get_cards_num()} 張牌")
+    if card01 == None:
+        print("遊戲結束")
+    else:
+        print(f"發第 {index} 張牌，花色是 {card01}，剩下 {deck01.get_cards_num()} 張牌")
+        time.sleep(0.01)
 
 # index = 2
 # card01 = deck01.deal_card()
