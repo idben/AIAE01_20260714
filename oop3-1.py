@@ -9,8 +9,14 @@ class PartyMember:
 
     def get_hp(self):
         return self.__hp
+    def get_damage(self, damage: int):
+        self.__hp -= damage
 
 
 hero = PartyMember("勇者", 100, 100)
 print(hero.name)
+# print(hero.__hp) # 私有化的屬性不能直接取用
+print(hero.get_hp())
+
+hero.get_damage(1)
 print(hero.get_hp())
